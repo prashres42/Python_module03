@@ -18,8 +18,8 @@ def gen_player_achievements() -> set:
     print(f"Player Dylan = {Dylan}")
     print()
 
-    Achievements = Alice.union(Bob, Charlie, Dylan)
-    print(f"All distinct achievements : {Achievements}")
+    Achievements1 = Alice.union(Bob, Charlie, Dylan)
+    print(f"All distinct achievements : {Achievements1}")
     print()
     print(f"Common achievements: {Alice.intersection(Bob, Charlie, Dylan)}")
     print(f"Only Alice has: {Alice.difference(Bob, Charlie, Dylan)}")

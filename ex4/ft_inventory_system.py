@@ -13,6 +13,12 @@ def main() -> None:
             if not key or not value:
                 print(f"Error - invalid parameter '{arg}'")
                 continue
+            try:
+                int(key)
+                print(f"Invalid key {key}")
+                continue
+            except ValueError:
+                pass
             if key in my_dict.keys():
                 print(f"Redundant item '{key}' - discarding")
                 continue
@@ -35,16 +41,16 @@ def main() -> None:
 
     min_key: str | None = None
     max_key: str | None = None
-    print("teste", my_dict.items())
     for k, v in my_dict.items():
-        if min_key is None or int(v) < my_dict[min_key]:
+        if min_key is None or v < my_dict[min_key]:
             min_key = k
-        if max_key is None or int(v) > my_dict[max_key]:
+        if max_key is None or v > my_dict[max_key]:
             max_key = k
-    print(f"Item most abundant: {max_key} with quantity"
+    print(f"Item most abundant: {max_key} with quantity "
           f"{my_dict[str(max_key)]}")
-    print(f"Item least abundant: {min_key} with quantity"
+    print(f"Item least abundant: {min_key} with quantity "
           f"{my_dict[str(min_key)]}")
+    my_dict.update({"guard": 1})
     print(f"Updated inventory : {my_dict}")
 
 
